@@ -1,16 +1,10 @@
 let gridSize = 16;
+
 const container = document.querySelector(".container");
-const sizeButton = document.querySelector("#size");
+const slider = document.querySelector("#slider");
+const sliderVal = document.querySelector("#value");
 
-sizeButton.addEventListener("click", () => gridResize());
-
-function gridResize() {
-    do {
-        gridSize = prompt("Please enter a value for squares per side (max 100)");
-    } while (gridSize <= 0 || gridSize > 100);
-    container.innerHTML = "";
-    setGrid(gridSize);
-}
+slider.addEventListener("input", () => gridResize());
 
 function setGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -25,6 +19,13 @@ function setGrid(size) {
             container.appendChild(cell);
         }
     }
+}
+
+function gridResize() {
+    gridSize = slider.value;
+    container.innerHTML = "";
+    sliderVal.textContent = slider.value;
+    setGrid(gridSize);
 }
 
 setGrid(gridSize);
