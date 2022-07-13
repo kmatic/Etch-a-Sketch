@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: #dfe7e8;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,8 +20,6 @@ body {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    border: 6px lightblue;
-    border-radius: 12px;
     width: 640px;
     height: 640px;
 }

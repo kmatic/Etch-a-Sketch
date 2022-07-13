@@ -1,10 +1,12 @@
 let gridSize = 16;
 
 const container = document.querySelector(".container");
+const clear = document.querySelector(".clear");
 const slider = document.querySelector("#slider");
 const sliderVal = document.querySelector("#value");
 
 slider.addEventListener("input", () => gridResize());
+clear.addEventListener("click", () => gridClear());
 
 function setGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -25,6 +27,11 @@ function gridResize() {
     gridSize = slider.value;
     container.innerHTML = "";
     sliderVal.textContent = slider.value;
+    setGrid(gridSize);
+}
+
+function gridClear() {
+    container.innerHTML = "";
     setGrid(gridSize);
 }
 
