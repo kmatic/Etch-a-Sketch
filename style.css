@@ -26,21 +26,16 @@ body {
 
 .btns {
     display: flex;
+    justify-content: ;
 }
 
 .cell {
-    border-color: black;
-    border-width: 1px;
     background-color: white;
-}
-
-.hover {
-    background-color: black;
 }
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
-    display: flex;
-    gap: 6px;
+    text-align: center;
   }
 
+  

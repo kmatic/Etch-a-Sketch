@@ -1,12 +1,15 @@
 let gridSize = 16;
+let color = "#000000";
 
 const container = document.querySelector(".container");
-const clear = document.querySelector(".clear");
+const clearBtn = document.querySelector("#clear");
 const slider = document.querySelector("#slider");
 const sliderVal = document.querySelector("#value");
+const colorSelect = document.querySelector("#colorSelect");
 
 slider.addEventListener("input", () => gridResize());
-clear.addEventListener("click", () => gridClear());
+clearBtn.addEventListener("click", () => gridClear());
+colorSelect.addEventListener("input", () => colorChange());
 
 function setGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -16,7 +19,7 @@ function setGrid(size) {
             const cell = document.createElement("div");
             cell.classList.add("cell");
             cell.addEventListener("mouseover", () => {
-                cell.classList.add("hover");
+                cell.style.backgroundColor = color;
             })
             container.appendChild(cell);
         }
@@ -26,12 +29,17 @@ function setGrid(size) {
 function gridResize() {
     gridSize = slider.value;
     container.innerHTML = "";
-    sliderVal.textContent = slider.value;
+    sliderVal.textContent = slider.value + "x" + slider.value;
     setGrid(gridSize);
 }
 
 function gridClear() {
     container.innerHTML = "";
+    setGrid(gridSize);
+}
+
+function colorChange() {
+    color = colorSelect.value;
     setGrid(gridSize);
 }
 
