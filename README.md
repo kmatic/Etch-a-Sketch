@@ -1,2 +1,2 @@
 # Etch-a-Sketch
-browser version of something between a sketchpad and an Etch-A-Sketch.
+Etch-a-Sketch game created with HTML, CSS and JS.
